@@ -34,7 +34,18 @@
                 android:textSize="20sp"
                 android:fontFamily="monospace"/>
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="PRIVATE INFORMATION"
+                android:layout_below="@id/changeProfilePhoto"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/white"
+                android:fontFamily="monospace"
+                android:background="@drawable/white_border_bottom"
+                android:id="@+id/textPrivateInfo1"/>
 
             <!-- username section -->
             <RelativeLayout
@@ -44,6 +55,7 @@
                 android:layout_marginTop="80dp"
                 android:background="@drawable/white_border_bottom"
                 android:id="@+id/relLayout1">
+
 
                 <ImageView
                     android:layout_width="35dp"
@@ -87,7 +99,8 @@
                     android:layout_marginStart="40dp"
                     android:background="@null"
                     android:inputType="textNoSuggestions"
-                    android:hint="display name"/>
+                    android:hint="First name"/>
+
 
             </RelativeLayout>
 
@@ -104,7 +117,7 @@
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/ic_web"
+                    android:src="@drawable/ic_name"
                     android:layout_centerVertical="true"/>
 
                 <EditText
@@ -115,7 +128,7 @@
                     android:layout_marginStart="40dp"
                     android:background="@null"
                     android:inputType="textNoSuggestions"
-                    android:hint="Website"/>
+                    android:hint="Last name"/>
 
             </RelativeLayout>
 
@@ -146,55 +159,12 @@
                     android:hint="Description"/>
 
             </RelativeLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:text="PRIVATE INFORMATION"
-                android:layout_below="@id/relLayout4"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:textColor="@color/black"
-                android:background="@drawable/white_border_bottom"
-                android:id="@+id/textPrivateInfo"/>
-
-
-            <!-- email section -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/textPrivateInfo"
+                android:layout_below="@+id/relLayout4"
                 android:background="@drawable/white_border_bottom"
-                android:id="@+id/relLayout5"
-                android:layout_marginTop="15dp">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/ic_email"
-                    android:layout_centerVertical="true"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/email"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="40dp"
-                    android:background="@null"
-                    android:inputType="textNoSuggestions"
-                    android:hint="Email"/>
-
-            </RelativeLayout>
-
-            <!-- phone number section -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/relLayout5"
-                android:background="@drawable/white_border_bottom"
-                android:id="@+id/relLayout6"
+                android:id="@+id/relLayout7"
                 android:layout_marginTop="15dp">
 
                 <ImageView
@@ -214,6 +184,102 @@
                     android:hint="Phone Number"/>
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/relLayout7"
+                android:background="@drawable/white_border_bottom"
+                android:id="@+id/relLayout8"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_cake"
+                    android:layout_centerVertical="true"/>
+
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/birthdate"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@null"
+                    android:inputType="date"
+                    android:hint="Birtdate"
+                    android:textColor="#ffffff"></EditText>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="BUSINESS INFORMATION"
+                android:layout_below="@id/relLayout8"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/white"
+                android:fontFamily="monospace"
+                android:background="@drawable/white_border_bottom"
+                android:id="@+id/textPrivateInfo"/>
+
+
+            <!-- email section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textPrivateInfo"
+                android:background="@drawable/white_border_bottom"
+                android:id="@+id/relLayout5"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_name"
+                    android:layout_centerVertical="true"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/companyname"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@null"
+                    android:inputType="textNoSuggestions"
+                    android:hint="Company Name"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/relLayout5"
+                android:background="@drawable/white_border_bottom"
+                android:id="@+id/relLayout9"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_position"
+                    android:layout_centerVertical="true"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/position"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="40dp"
+                    android:background="@null"
+                    android:inputType="textNoSuggestions"
+                    android:hint="Position"/>
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
 

@@ -4,7 +4,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/white_grey_border_bottom"
+        android:background="@color/white"
         >
 
         <android.support.v7.widget.Toolbar
@@ -23,7 +23,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/backArrow"
-                    android:src="@drawable/ic_backarrow"/>
+                    android:src="@drawable/ic_arrow"/>
 
                 <TextView
                     android:layout_toRightOf="@+id/backArrow"
@@ -32,7 +32,7 @@
                     android:layout_centerVertical="true"
                     android:text="Edit Profile"
                     android:textSize="20sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:layout_marginStart="5dp"
                     android:fontFamily="monospace"
                     android:id="@+id/profileName"/>
