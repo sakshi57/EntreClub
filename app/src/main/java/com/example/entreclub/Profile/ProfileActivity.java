@@ -1,6 +1,7 @@
 package com.example.entreclub.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,8 +38,8 @@ public class ProfileActivity extends AppCompatActivity {
        profileMenu.setOnClickListener(new View.OnClickListener() {
            public void onClick(View v) {
                Log.d(TAG, "onClick: navigating to account settings.");
-           //    Intent intent = new Intent(mContext, AccountSettingsActivity.class);
-             //  startActivity(intent);
+            Intent intent = new Intent(mContext, AccountSettingsActivity.class);
+               mContext.startActivity(intent);
            }
        });
    }

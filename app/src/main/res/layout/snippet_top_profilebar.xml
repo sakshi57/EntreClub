@@ -32,6 +32,7 @@
                     android:id="@+id/profileMenu"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_set"></ImageView>
 
             </RelativeLayout>

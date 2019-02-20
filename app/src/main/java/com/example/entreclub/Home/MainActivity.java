@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.example.entreclub.R;
 import com.example.entreclub.Registration.RegistrationActivity;
 import com.example.entreclub.utils.BottomNavigationViewHelper;
+import com.example.entreclub.utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 
