@@ -37,8 +37,8 @@ public class ProfileActivity extends AppCompatActivity {
        profileMenu.setOnClickListener(new View.OnClickListener() {
            public void onClick(View v) {
                Log.d(TAG, "onClick: navigating to account settings.");
-              // Intent intent = new Intent(mContext, AccountSettingsActivity.class);
-            //   startActivity(intent);
+           //    Intent intent = new Intent(mContext, AccountSettingsActivity.class);
+             //  startActivity(intent);
            }
        });
    }

@@ -21,6 +21,8 @@
         <activity android:name=".Search.SearchActivity"></activity>
         <activity android:name=".Share.ShareActivity"></activity>
         <activity android:name=".Profile.ProfileActivity$AccountSettingsActivity"></activity>
+        <activity android:name=".Registration.RegistrationActivity"></activity>
+        <activity android:name=".Registration.businessInfo"></activity>
     </application>
 
 </manifest>
