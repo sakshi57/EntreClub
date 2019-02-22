@@ -19,7 +19,7 @@ public class NotifActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_homepage);
         Log.d(TAG, "onCreate: Started!");
         setupbottomnavigationview();
     }
