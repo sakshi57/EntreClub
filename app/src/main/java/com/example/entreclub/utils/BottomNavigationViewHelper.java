@@ -7,7 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.entreclub.Home.MainActivity;
+import com.example.entreclub.Home.HomeActivity;
 import com.example.entreclub.Notification.NotifActivity;
 import com.example.entreclub.Profile.ProfileActivity;
 import com.example.entreclub.R;
@@ -32,7 +32,7 @@ public class BottomNavigationViewHelper {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                switch(menuItem.getItemId()){
                    case R.id.ic_house:
-                       Intent intent1 = new Intent(context, MainActivity.class);
+                       Intent intent1 = new Intent(context, HomeActivity.class);
                        context.startActivity(intent1);                      //ACTIVITY_NUM=0
                    break;
                    case R.id.ic_search:

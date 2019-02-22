@@ -1,77 +1,62 @@
 package com.example.entreclub.Home;
 
-import android.content.Context;
+
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.entreclub.R;
 import com.example.entreclub.Registration.RegistrationActivity;
-import com.example.entreclub.utils.BottomNavigationViewHelper;
-import com.example.entreclub.utils.SectionsPagerAdapter;
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-
-//Responsible for Recommendation,Messages,Icon
-
-public class  MainActivity extends AppCompatActivity {
-    private Context mContext = MainActivity.this;
-    private static final int ACTIVITY_NUM = 0;
-    private static final String TAG = "MainActivity";
-    private Button b;
+public class MainActivity extends AppCompatActivity {
+    TextView tNewUser;
+    LinearLayout l;
+    Button b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tNewUser=(TextView)findViewById(R.id.newUser);
+        l=(LinearLayout)findViewById(R.id.LayoutInput);
 
-      //register btn
-
-        b = (Button)findViewById(R.id.button2) ;
+        b = (Button)findViewById(R.id.login) ;
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,RegistrationActivity.class);
+                Intent i = new Intent(MainActivity.this,HomeActivity.class);
                 startActivity(i);
             }
         });
+        l.setBackgroundColor(Color.rgb(255,255,255));
+        String text="New User? Sign Up";
+        SpannableString ss=new SpannableString(text);
+        ClickableSpan clickableSpan=new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                Intent i=new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(i);
+            }
 
-        Log.d(TAG, "onCreate: Starting");
-        setupbottomnavigationview();
-        setupviewpager();    }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                String col="#446fcd";
+                super.updateDrawState(ds);
+                ds.setColor(Color.parseColor(col));
+            }
+        };
 
-
-    private void setupviewpager(){
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new RecommendationFragment());
-        adapter.addFragment(new HomeFragment());
-        adapter.addFragment(new MessageFragment());
-        ViewPager viewPager = (ViewPager) findViewById(R.id.container); //container from centre viewpager
-        viewPager.setAdapter(adapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_recom);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_iconfinal);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_message);    }
-
-
-    //bottom navigation setup
-    private void setupbottomnavigationview(){
-        Log.d(TAG, "setupbottomnavigationview: Setting up Bottom Navigation View");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomnav);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enablenavigation(mContext,bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = ((Menu) menu).getItem(ACTIVITY_NUM);
-        menuItem.setChecked(true);
-
+        ss.setSpan(clickableSpan,10,17, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tNewUser.setText(ss);
+        tNewUser.setMovementMethod(LinkMovementMethod.getInstance());
     }
-
 }
