@@ -9,9 +9,14 @@
         android:background="@color/white">
         <include layout="@layout/layout_center_profile"/>
 
-        <include layout ="@layout/layout_bottom_navigation"/><!--
-
+        <include layout ="@layout/layout_bottom_navigation"/>
         <ProgressBar
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/profileProgressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"/>
+       <!-- <ProgressBar
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/profilePrgoressbar"

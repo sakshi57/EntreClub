@@ -10,21 +10,21 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--top toolbar-->
+        <!--top toolbar-->
         <RelativeLayout
             android:id="@+id/relLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <include layout="@layout/layout_top_tabs"/>
+             <include layout="@layout/layout_top_tabs"/>
         </RelativeLayout>
         <!--middle section-->
         <RelativeLayout
             android:id="@+id/relLayout2"
-            android:layout_below="@id/relLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relLayout1">
 
-            <include layout="@layout/layout_center_viewpager"/>
+            <include layout="@layout/layout_center_viewpager" />
 
             <Button
                 android:id="@+id/button2"
@@ -35,7 +35,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/layout_bottom_navigation"/>
+        <include layout="@layout/layout_bottom_navigation" />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

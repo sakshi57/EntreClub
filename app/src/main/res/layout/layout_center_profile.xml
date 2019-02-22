@@ -96,7 +96,7 @@
                     android:layout_below="@+id/description"
                     android:padding="5dp"
                     />
-                <GridView
+               <!-- <GridView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="3"
@@ -109,7 +109,7 @@
 
                     >
                 </GridView>
-
+-->
 
             </LinearLayout>
 
