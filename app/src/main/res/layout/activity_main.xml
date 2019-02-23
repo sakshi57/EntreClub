@@ -45,13 +45,14 @@
                 android:textColor="@color/blue"/>
 
             <EditText
+                android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#446daf"
-                android:textColor="@color/grey"
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="20dp"
-                android:hint="Email" />
+                android:hint="Email"
+                android:textColor="@color/grey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,12 +63,13 @@
                 android:text="Password:" />
 
             <EditText
+                android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#446daf"
-                android:textColor="@color/blue"
                 android:drawableLeft="@drawable/ic_locker"
-                android:hint="Password" />
+                android:hint="Password"
+                android:textColor="@color/blue" />
             <!-- <CheckBox
                 android:text="Remember me"
                 android:layout_width="wrap_content"
@@ -81,13 +83,13 @@
                 android:textColor="#446daf" />
 
             <Button
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:id="@+id/login"
-                android:fontFamily="sans-serif-black"
                 android:background="@drawable/rec_background"
-                android:text="Login"
+                android:fontFamily="sans-serif-black"
+                android:text="Sign In"
                 android:textColor="#fff" />
 
             <TextView

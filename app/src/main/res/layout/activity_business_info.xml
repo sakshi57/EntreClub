@@ -54,80 +54,87 @@
         android:textColorHint="#80ffffff"/>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/have_CC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="CheckBox"
+        android:text="CC"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
+        android:onClick="selectItem"
 
         />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/have_CN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toTopOf="@+id/checkBox"
+        android:text="CN"
+        app:layout_constraintStart_toEndOf="@+id/have_CC"
+        app:layout_constraintTop_toTopOf="@+id/have_CC"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
+        android:onClick="selectItem"
 
         />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/have_DAA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2"
-        app:layout_constraintTop_toTopOf="@+id/checkBox2"
+        android:text="DAA"
+        app:layout_constraintStart_toEndOf="@+id/have_CN"
+        app:layout_constraintTop_toTopOf="@+id/have_CN"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
+        android:onClick="selectItem"
 
         />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/have_OS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        android:text="OS"
+        app:layout_constraintStart_toStartOf="@+id/have_CC"
+        app:layout_constraintTop_toBottomOf="@+id/have_CC"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
+        android:onClick="selectItem"
 
         />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/have_DSF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toEndOf="@+id/checkBox4"
-        app:layout_constraintTop_toTopOf="@+id/checkBox4"
+        android:text="DSF"
+        app:layout_constraintStart_toEndOf="@+id/have_OS"
+        app:layout_constraintTop_toTopOf="@+id/have_OS"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
+        android:onClick="selectItem"
 
         />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/have_SP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="CheckBox"
+        android:text="SP"
         android:buttonTint="#ffffff"
-        app:layout_constraintStart_toEndOf="@+id/checkBox5"
-        app:layout_constraintTop_toTopOf="@+id/checkBox5"
+        app:layout_constraintStart_toEndOf="@+id/have_DSF"
+        app:layout_constraintTop_toTopOf="@+id/have_DSF"
         android:textColor="#ffffff"
+        android:onClick="selectItem"
+
         />
 
     <TextView
@@ -158,7 +165,7 @@
         android:textColorHint="#80ffffff"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSignup"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -173,6 +180,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+        app:layout_constraintTop_toBottomOf="@+id/have_DSF" />
 
 </android.support.constraint.ConstraintLayout>
