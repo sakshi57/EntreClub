@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.entreclub.R;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.Calendar;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,7 +30,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     RadioGroup radioGroup;
     RadioButton radioButton;
     String selectedGender;
-    String firstname,lastname,emailid,password,contact,dob,city,cpassword;
+    String firstname,lastname,emailid,password,contact,dob,city,cpassword,pw_hash;
 
 
     private EditText editTextfirstname,editTextlastname,editTextemailid,editTextcontact,editTextpassword,editTextcity,editTextcpassword;
@@ -122,6 +124,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             cpassword = editTextcpassword.getText().toString().trim();
 
 
+             pw_hash = BCrypt.hashpw(password, BCrypt.gensalt());
+
 
 
             if(firstname.isEmpty()){
@@ -203,7 +207,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     extras.putString("lname", lastname);
                     extras.putString("mail", emailid);
                     extras.putString("phone", contact);
-                    extras.putString("pass", password);
+                    extras.putString("pass", pw_hash);
                     extras.putString("birthdate", dob);
                     extras.putString("gender", selectedGender);
                     extras.putString("residential", city);
