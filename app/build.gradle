@@ -49,6 +49,7 @@ dependencies {
 //expandable text
     implementation 'com.borjabravo:readmoretextview:2.1.0'
 
-
+//search
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
 
 }
