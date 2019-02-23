@@ -3,7 +3,7 @@
 
 <item
     android:id="@+id/ic_house"
-    android:icon="@drawable/ic_house"
+    android:icon="@drawable/ic_home"
     android:title="">
 </item>
 
@@ -27,7 +27,7 @@
 
 <item
     android:id="@+id/ic_group"
-    android:icon="@drawable/ic_group"
+    android:icon="@drawable/ic_profile"
     android:title="">
 </item>
 </menu>

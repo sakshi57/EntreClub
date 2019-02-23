@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +22,7 @@
         <activity android:name=".Search.SearchActivity"></activity>
         <activity android:name=".Share.ShareActivity"></activity>
         <activity android:name=".Profile.AccountSettingsActivity"></activity>
+        <activity android:name=".Profile.ViewPosts"></activity>
         <activity android:name=".Registration.RegistrationActivity"></activity>
         <activity android:name=".Registration.businessInfo"></activity>
         <activity android:name=".Home.Recommendation"></activity>

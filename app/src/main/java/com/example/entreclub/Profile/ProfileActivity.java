@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.entreclub.R;
@@ -19,7 +20,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "activity_profile";
     private Context mContext = ProfileActivity.this;
-
+    Button b2;
    // private ProgressBar mProgressBar;
     private ImageView profilePhoto;
     private static final int NUM_GRID_COLUMNS = 3;
@@ -32,7 +33,17 @@ public class ProfileActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started!");
        setupbottomnavigationview();
       setupToolbar();
-       // setupActivityWidgets();
+
+        b2 = (Button) findViewById(R.id.viewposts);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this, ViewPosts.class);
+                startActivity(i);
+            }
+        });
+
+        // setupActivityWidgets();
         //setProfileImage();
         //tempGridSetup();
     }

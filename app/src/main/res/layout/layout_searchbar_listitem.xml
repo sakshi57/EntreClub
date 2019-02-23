@@ -34,21 +34,6 @@
         android:fontFamily="monospace"
         />
 
-    <Button
-        android:id="@+id/follow"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/blue"
-        android:fontFamily="monospace"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="Follow"
-        android:textColor="@color/white"
-        android:textSize="14dp" />
     <com.borjabravo.readmoretextview.ReadMoreTextView
         android:layout_width="match_parent"
         android:id="@+id/desc"
@@ -65,7 +50,5 @@
         android:textColor="@color/black"
         android:layout_below="@+id/imageView"
         />
-
-
 
 </RelativeLayout>
