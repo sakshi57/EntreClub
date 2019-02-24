@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -128,66 +126,66 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
 
 
-            if(firstname.isEmpty()){
-                editTextfirstname.setError("Firstname required!");
-                editTextfirstname.requestFocus();
-                return false;
-            }
-
-            if(lastname.isEmpty()){
-                editTextlastname.setError("Lastname required!");
-                editTextlastname.requestFocus();
-                return false;
-             }
-
-            if(emailid.isEmpty()){
-                editTextemailid.setError("Email id is required!");
-                editTextemailid.requestFocus();
-                return false;
-            }
-
-             if(!Patterns.EMAIL_ADDRESS.matcher(emailid).matches()){
-                 editTextemailid.setError("Please enter a valid mail id!");
-                 editTextemailid.requestFocus();
-                 return false;
-             }
-
-            if(contact.isEmpty()){
-                editTextcontact.setError("Contact required!");
-                editTextcontact.requestFocus();
-                return false;
-            }
-
-            if(password.isEmpty()){
-                editTextpassword.setError("Password required!");
-                editTextpassword.requestFocus();
-                return false;
-            }
-
-            if(password.length() < 7){
-                editTextpassword.setError("Password must be atleast 7 characters long!");
-                editTextpassword.requestFocus();
-                return false;
-            }
-
-            if(!password.equals(cpassword)){
-                editTextcpassword.setError("Passwords do not match!");
-                editTextcpassword.requestFocus();
-                return false;
-            }
-            if(dob.isEmpty()){
-                t1.setError("Birthdate is required!");
-                t1.requestFocus();
-                return false;
-            }
-
-            if(city.isEmpty()){
-                editTextcity.setError("City required!");
-                editTextcity.requestFocus();
-                return false;
-            }
-
-            return true;
+//            if(firstname.isEmpty()){
+//                editTextfirstname.setError("Firstname required!");
+//                editTextfirstname.requestFocus();
+//                return false;
+//            }
+//
+//            if(lastname.isEmpty()){
+//                editTextlastname.setError("Lastname required!");
+//                editTextlastname.requestFocus();
+//                return false;
+//             }
+//
+//            if(emailid.isEmpty()){
+//                editTextemailid.setError("Email id is required!");
+//                editTextemailid.requestFocus();
+//                return false;
+//            }
+//
+//             if(!Patterns.EMAIL_ADDRESS.matcher(emailid).matches()){
+//                 editTextemailid.setError("Please enter a valid mail id!");
+//                 editTextemailid.requestFocus();
+//                 return false;
+//             }
+//
+//            if(contact.isEmpty()){
+//                editTextcontact.setError("Contact required!");
+//                editTextcontact.requestFocus();
+//                return false;
+//            }
+//
+//            if(password.isEmpty()){
+//                editTextpassword.setError("Password required!");
+//                editTextpassword.requestFocus();
+//                return false;
+//            }
+//
+//            if(password.length() < 7){
+//                editTextpassword.setError("Password must be atleast 7 characters long!");
+//                editTextpassword.requestFocus();
+//                return false;
+//            }
+//
+//            if(!password.equals(cpassword)){
+//                editTextcpassword.setError("Passwords do not match!");
+//                editTextcpassword.requestFocus();
+//                return false;
+//            }
+//            if(dob.isEmpty()){
+//                t1.setError("Birthdate is required!");
+//                t1.requestFocus();
+//                return false;
+//            }
+//
+//            if(city.isEmpty()){
+//                editTextcity.setError("City required!");
+//                editTextcity.requestFocus();
+//                return false;
+//            }
+//
+ return true;
 
     }
 
@@ -199,22 +197,22 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
 
             case R.id.btnNext:
-                if(userSignup()) {
+               // if(userSignup()) {
                     Intent i = new Intent(RegistrationActivity.this, businessInfo.class);
 
-                    Bundle extras = new Bundle();
-                    extras.putString("fname", firstname);
-                    extras.putString("lname", lastname);
-                    extras.putString("mail", emailid);
-                    extras.putString("phone", contact);
-                    extras.putString("pass", pw_hash);
-                    extras.putString("birthdate", dob);
-                    extras.putString("gender", selectedGender);
-                    extras.putString("residential", city);
-                    i.putExtras(extras);
+//                    Bundle extras = new Bundle();
+//                    extras.putString("fname", firstname);
+//                    extras.putString("lname", lastname);
+//                    extras.putString("mail", emailid);
+//                    extras.putString("phone", contact);
+//                    extras.putString("pass", pw_hash);
+//                    extras.putString("birthdate", dob);
+//                    extras.putString("gender", selectedGender);
+//                    extras.putString("residential", city);
+//                    i.putExtras(extras);
 
                     startActivity(i);
-                }
+              //  }
                 break;
 
 
