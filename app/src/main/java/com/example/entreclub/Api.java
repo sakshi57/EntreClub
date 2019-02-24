@@ -1,5 +1,7 @@
 package com.example.entreclub;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -15,6 +17,9 @@ public interface Api {
 
     @GET("signIn/{id}")
     Call<signInClient> signInUser(@Path("id") String emailid);
+
+    @GET("getTags")
+    Call<List<getTags>> tags();
 }
 
 

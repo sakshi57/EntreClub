@@ -50,7 +50,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#446daf"
                 android:drawableLeft="@drawable/ic_email"
-                android:drawablePadding="20dp"
                 android:hint="Email"
                 android:textColor="@color/grey" />
 

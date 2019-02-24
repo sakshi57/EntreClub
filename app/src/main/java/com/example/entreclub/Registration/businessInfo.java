@@ -7,14 +7,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.entreclub.Api;
 import com.example.entreclub.R;
 import com.example.entreclub.RetrofitClient;
+import com.example.entreclub.getTags;
+import com.example.entreclub.signInClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -30,8 +34,9 @@ public class businessInfo extends Activity implements View.OnClickListener {
     String company,position,description;
     private EditText editTextcompany,editTextposition,editTextdescription;
     ArrayList<String> haves = new ArrayList<String>();
-
-
+    CheckBox checkBox;
+    LinearLayout lm;
+    //private ArrayList<String> tags = new ArrayList<String>();
 
 
     @Override
@@ -55,12 +60,57 @@ public class businessInfo extends Activity implements View.OnClickListener {
         editTextdescription = findViewById(R.id.editText4);
 
         findViewById(R.id.buttonSignup).setOnClickListener(this);
+        lm = (LinearLayout)findViewById(R.id.linearMain);
 
-        //Toast.makeText(this, "values :  " +firstname,Toast.LENGTH_SHORT).show();
+
+
+       Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://192.168.43.44:8080/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        Api api = retrofit.create(Api.class);
+
+        Call<List<getTags>> call = api.tags();
+
+        call.enqueue(new Callback<List<getTags>>() {
+            @Override
+            public void onResponse(Call<List<getTags>> call, Response<List<getTags>> response) {
+
+                    List<getTags> list = response.body();
+                    makeCheckboxes(list);
+            }
+
+            @Override
+            public void onFailure(Call<List<getTags>> call, Throwable t) {
+
+
+                Toast.makeText(businessInfo.this,t.getMessage(),Toast.LENGTH_LONG).show();
+
+
+            }
+        });
 
     }
 
-    public void selectItem(View v) {
+    public void makeCheckboxes(List<getTags> list){
+
+
+        for (int i = 0; i < list.size(); i++) {
+            checkBox = new CheckBox(this);
+            checkBox.setId(i);
+            checkBox.setText(list.get(i).getTitle());
+            lm.addView(checkBox);
+
+
+        }
+
+    }
+
+
+
+        public void selectItem(View v) {
 
         boolean checked = ((CheckBox) v).isChecked();
         CheckBox obj = (CheckBox) v;
@@ -73,65 +123,7 @@ public class businessInfo extends Activity implements View.OnClickListener {
 
     }
 
-       // Toast.makeText(this,temp,Toast.LENGTH_SHORT).show();
 
-        /*
-
-        switch (v.getId()) {
-            case R.id.have_CC:
-                if (checked)
-                    haves.add("CC");
-                else
-                    haves.remove("CC");
-
-                break;
-
-            case R.id.have_CN:
-                if (checked)
-                    haves.add("CN");
-                else
-                    haves.remove("CN");
-
-                break;
-
-            case R.id.have_DAA:
-                if (checked)
-                    haves.add("DAA");
-                else
-                    haves.remove("DAA");
-
-                break;
-
-
-            case R.id.have_DSF:
-                if (checked)
-                    haves.add("DSF");
-                else
-                    haves.remove("DSF");
-
-                break;
-
-
-            case R.id.have_SP:
-                if (checked)
-                    haves.add("SP");
-                else
-                    haves.remove("SP");
-
-                break;
-
-            case R.id.have_OS:
-                if (checked)
-                    haves.add("OS");
-                else
-                    haves.remove("OS");
-
-                break;
-
-
-        }
-
-    }*/
 
         public void userSignup(){
 

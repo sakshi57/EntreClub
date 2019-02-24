@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.102:8080/")
+                .baseUrl("http://172.20.10.3:8080/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
             @Override
             public void onFailure(Call<signInClient> call, Throwable t) {
-                Toast.makeText(MainActivity.this,"Failed to register User!",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Failed! Please check your internet connection!",Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#446daf"
+    android:background="#ffff"
 
     android:layout_height="match_parent"
     tools:context=".Registration.businessInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll">
+        <include layout="@layout/snippet_top_profilebar" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editText"
@@ -14,30 +21,30 @@
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="@color/blue"
 
         android:ems="10"
         android:hint="Company/Oranization name"
         android:inputType="textPersonName"
-        android:textColor="#ffffff"
-        android:textColorHint="#80ffffff"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/ll" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/textView3"
         android:layout_width="352dp"
-        android:layout_height="33dp"
+        android:layout_height="29dp"
         android:layout_marginTop="32dp"
         android:background="#ffffff"
-        android:text="Business Information"
         android:fontFamily="monospace"
+        android:text="Business Information"
         android:textAlignment="center"
         android:textColor="#446daf"
 
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <EditText
         android:id="@+id/editText2"
@@ -49,11 +56,21 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        android:backgroundTint="#ffffff"
-        android:textColor="#ffffff"
-        android:textColorHint="#80ffffff"/>
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/grey"/>
 
-    <CheckBox
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/linearMain"
+        android:background="@color/blue"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <!--<CheckBox
         android:id="@+id/have_CC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,7 +152,7 @@
         android:textColor="#ffffff"
         android:onClick="selectItem"
 
-        />
+        />-->
 
     <TextView
         android:id="@+id/textView4"
@@ -144,7 +161,7 @@
 
         android:layout_marginTop="12dp"
         android:text="Select your Haves/Interests:"
-        android:textColor="#ffffff"
+        android:textColor="@color/blue"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@+id/editText4"
         app:layout_constraintTop_toBottomOf="@+id/editText4"
@@ -160,9 +177,9 @@
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="@+id/editText2"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
-        android:backgroundTint="#ffffff"
-        android:textColor="#ffffff"
-        android:textColorHint="#80ffffff"/>
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/grey"/>
 
     <Button
         android:id="@+id/buttonSignup"
@@ -172,7 +189,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/ic_shape"
-        android:textColor="#446daf"
+        android:textColor="@color/white"
 
         android:text="Submit"
         android:fontFamily="monospace"
@@ -180,6 +197,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/have_DSF" />
+        app:layout_constraintTop_toBottomOf="@+id/linearMain" />
+
+   <!-- <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="100dp"
+        android:inputType="text|textMultiLine"
+        android:gravity="top"
+        android:hint="First Name"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignup" />
+    -->
+
+
+
 
 </android.support.constraint.ConstraintLayout>
