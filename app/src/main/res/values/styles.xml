@@ -13,6 +13,16 @@
 
 
     </style>
+    <style name="NavigationView" >
+        <item name="android:listDivider">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
 
 
+    <style name="AppTheme.CustomTheme">
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+    </style>
 </resources>

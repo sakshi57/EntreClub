@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView profilePhoto;
     private static final int NUM_GRID_COLUMNS = 3;
 
-    private static final int ACTIVITY_NUM = 4;
+    private static final int ACTIVITY_NUM = 2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +34,14 @@ public class ProfileActivity extends AppCompatActivity {
        setupbottomnavigationview();
       setupToolbar();
 
-        b2 = (Button) findViewById(R.id.viewposts);
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ProfileActivity.this, ViewPosts.class);
-                startActivity(i);
-            }
-        });
+//        b2 = (Button) findViewById(R.id.viewposts);
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(ProfileActivity.this, ViewPosts.class);
+//                startActivity(i);
+//            }
+//        });
 
         // setupActivityWidgets();
         //setProfileImage();
