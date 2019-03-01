@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.entreclub.Home.EventDetails;
+import com.example.entreclub.Home.test;
+
 import java.util.List;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.EventViewHolder> {
@@ -40,14 +43,14 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.EventViewHol
         eventViewHolder.t2.setText(e.getDate());
         eventViewHolder.t3.setText(e.getAgenda());
 //
-//        eventViewHolder.b1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i=new Intent(mCtx,EventDetailsActivity.class);
-//                i.putExtra("ID",e.getId());
-//                mCtx.startActivity(i);
-//            }
-//        });
+        eventViewHolder.b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(mCtx, EventDetails.class);
+                i.putExtra("ID",e.getId());
+                mCtx.startActivity(i);
+            }
+        });
 
     }
 
@@ -66,7 +69,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.EventViewHol
             t1=itemView.findViewById(R.id.textTitle);
             t2=itemView.findViewById(R.id.fetcheddate);
             t3=itemView.findViewById(R.id.desc);
-            b1=itemView.findViewById(R.id.btnexplore);
+            b1=itemView.findViewById(R.id.btn_explore);
         }
 
 

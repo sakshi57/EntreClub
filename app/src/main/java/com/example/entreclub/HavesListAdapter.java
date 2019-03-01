@@ -36,7 +36,7 @@ public class HavesListAdapter extends RecyclerView.Adapter<HavesListAdapter.Have
     public void onBindViewHolder(@NonNull HavesViewHolder havesViewHolder, int i) {
 
             AsksListClass asksListClass=li.get(i);
-            havesViewHolder.t1.setText(asksListClass.getEmail()+" posted:");
+            havesViewHolder.t1.setText(asksListClass.getEmailid()+" posted:");
             havesViewHolder.t2.setText(asksListClass.getDescription());
     }
 

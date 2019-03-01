@@ -86,7 +86,7 @@ public class updateProfile extends AppCompatActivity {
 
         editTextfirstname = findViewById(R.id.firstname);
         editTextlastname = findViewById(R.id.lastname);
-        editTextemailid = findViewById(R.id.username);
+     //   editTextemailid = findViewById(R.id.username);
         editTextcontact = findViewById(R.id.contact);
         editTextcity = findViewById(R.id.city);
         editTextcompanyname = findViewById(R.id.company);

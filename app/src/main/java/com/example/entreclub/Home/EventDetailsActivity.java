@@ -1,4 +1,4 @@
-package com.example.entreclub;
+package com.example.entreclub.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.entreclub.AsksListAdapter;
+import com.example.entreclub.AsksListClass;
+import com.example.entreclub.Event;
+import com.example.entreclub.FillData;
+import com.example.entreclub.HavesListAdapter;
+import com.example.entreclub.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventDetailsActivity extends AppCompatActivity {
-//
+
 //    FirebaseFirestore db,db1;
 //    TextView t;
 //    RecyclerView recyclerView1,recyclerView2;
@@ -84,7 +90,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 //        btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i=new Intent(EventDetailsActivity.this,FillData.class);
+//                Intent i=new Intent(EventDetailsActivity.this, AskHave.class);
 //                i.putExtra("ID",eventId);
 //                startActivity(i);
 //            }

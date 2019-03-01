@@ -1,27 +1,23 @@
 package com.example.entreclub;
 
 public class AsksListClass {
-    String email;
-    String description,type;
 
-    public AsksListClass()
-    {
-    }
+  String emailid,description;
+
+  public AsksListClass(){}
 
 
-    public AsksListClass(String email, String description) {
-        this.email = email;
+    public AsksListClass(String emailid, String description) {
+        this.emailid = emailid;
         this.description = description;
-        this.type=type;
     }
 
-
-    public String getEmail() {
-        return email;
+    public String getEmailid() {
+        return emailid;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
     }
 
     public String getDescription() {
@@ -30,13 +26,5 @@ public class AsksListClass {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

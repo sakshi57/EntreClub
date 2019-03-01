@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.entreclub.AdapterClass;
 import com.example.entreclub.Event;
@@ -25,6 +26,9 @@ import com.example.entreclub.R;
 import com.example.entreclub.utils.BottomNavigationViewHelper;
 import com.example.entreclub.utils.UniversalImageLoader;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,6 +37,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 //
 //public class HomeActivity extends AppCompatActivity {
@@ -140,7 +145,8 @@ public class HomeActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 0;
     private static final String TAG = "HomeActivity";
     private Button b;
-    private String Agenda, amendments, date, decision, future_scope, title, link, remarks, amount, id, d;
+    Timestamp date;
+    private String Agenda, amendments, decision, future_scope, title, link, remarks, amount, id, d;
 
     RecyclerView recyclerView;
     AdapterClass adapterClass;
@@ -154,12 +160,22 @@ public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
+    String testname;
+
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+//        FirebaseUser user;
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        testname = user.getDisplayName();
+//
+//        Toast.makeText(getApplicationContext(),testname,Toast.LENGTH_SHORT);
+//        Log.d("myname",testname);
+
 
 
 //        b1 = (ImageButton)findViewById(R.id.imageButton);
@@ -200,11 +216,11 @@ public class HomeActivity extends AppCompatActivity {
 
                                 Agenda = d.getString("Agenda");
                                 title = d.getString("Title");
-                                date = d.getString("Date");
-//                            d = date.toString();
+                                date = d.getTimestamp("Date");
+                                String str=date.toString();
                                 id = d.getString("id");
 
-                                FeedSecretary feedSecretary = new FeedSecretary(title, date, Agenda, id);
+                                FeedSecretary feedSecretary = new FeedSecretary(title,str, Agenda, id);
                                 li.add(feedSecretary);
 
 

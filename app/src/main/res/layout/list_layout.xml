@@ -126,6 +126,7 @@ android:id="@+id/relativeLayout">
     android:background="#76287c"
     android:textColor="#ffffff"
     android:text="EXPLORE"
+
     android:fontFamily="monospace"/>
 
 

@@ -28,10 +28,10 @@
                 android:layout_height="50dp"
                 android:layout_below="@id/profile_photo"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:background="@color/blue"
                 android:text="Choose"
-                android:textColor="@color/white"
-                android:layout_marginTop="15dp" />
+                android:textColor="@color/white" />
 
             <!--<ProgressBar-->
             <!--android:id="@+id/progressbar"-->
@@ -55,32 +55,6 @@
                 android:textStyle="bold" />
 
             <!-- username section -->
-            <RelativeLayout
-                android:id="@+id/relLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/textPrivateInfo1"
-                android:layout_marginTop="80dp">
-
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
-
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="40dp"
-                    android:hint=""
-                    android:inputType="textNoSuggestions"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
-
-            </RelativeLayout>
 
 
             <!-- display_name section -->
@@ -88,14 +62,14 @@
                 android:id="@+id/relLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/relLayout1"
+                android:layout_below="@+id/textPrivateInfo1"
                 android:layout_marginTop="15dp">
 
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
                 <EditText
                     android:id="@+id/firstname"
@@ -123,7 +97,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
 
                 <EditText
@@ -144,14 +118,14 @@
                 android:id="@+id/relLayout7"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/relLayout3"
+                android:layout_below="@+id/relLayout11"
                 android:layout_marginTop="15dp">
 
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
 
                 <EditText
@@ -167,46 +141,19 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/relLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/relLayout7"
-                android:layout_marginTop="15dp">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
-
-
-                <EditText
-                    android:id="@+id/dob"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:focusableInTouchMode="false"
-
-                    android:inputType="date"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
-
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relLayout11"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/relLayout8"
+                android:layout_below="@+id/relLayout3"
                 android:layout_marginTop="15dp">
 
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
 
                 <EditText
@@ -227,7 +174,7 @@
                 android:id="@+id/textPrivateInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relLayout11"
+                android:layout_below="@id/relLayout7"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:fontFamily="monospace"
@@ -249,7 +196,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
                 <EditText
                     android:id="@+id/company"
@@ -275,7 +222,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
                 <EditText
                     android:id="@+id/position"
@@ -301,7 +248,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_icon" />
+                    android:src="@drawable/ic_name" />
 
                 <EditText
                     android:id="@+id/description"
@@ -315,22 +262,23 @@
                     android:textColorHint="@color/blue" />
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relLayout4"
-                >
+                android:layout_below="@id/relLayout4">
+
                 <Button
                     android:id="@+id/update"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    android:background="@color/blue"
-                    android:text="UPDATE"
-                    android:layout_marginTop="15dp"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/blue"
                     android:foregroundGravity="center"
-                    android:textColor="@color/white"
-                    android:onClick="updateProfile"/>
+                    android:onClick="updateProfile"
+                    android:text="UPDATE"
+                    android:textColor="@color/white" />
 
 
             </RelativeLayout>

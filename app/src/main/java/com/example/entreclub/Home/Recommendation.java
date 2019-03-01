@@ -12,15 +12,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.entreclub.AdapterClass;
+import com.example.entreclub.FeedSecretary;
 import com.example.entreclub.R;
 import com.example.entreclub.utils.BottomNavigationViewHelper;
 import com.example.entreclub.utils.RecyclerViewAdapterRecom;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Recommendation extends AppCompatActivity {
     private Context mContext;
     private static final int ACTIVITY_NUM = 0;
     private static final String TAG = "Recommendation";
+    RecyclerView recyclerView;
+    AdapterClass adapterClass;
+    List<FeedSecretary> li;
+    private FirebaseFirestore db;
+    DocumentReference documentReference;
    // public int flag = 0;
     // final Button testButton = (Button) findViewById(R.id.follow);
 
@@ -29,11 +41,23 @@ public class Recommendation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommendation);
-        RecyclerView recycler_view = findViewById(R.id.recycler_view);
-        recycler_view.setLayoutManager(new LinearLayoutManager(this));
-        String services[] = {"Sakshi", "Nikhil", "Shruti", "Vedang", "Sagar", "Anuj", "Mallika"};
-        // String des[] = {"Glide supports fetching, decoding, and displaying video stills, images, and animated GIFs. Glide includes a flexible API that allows developers to plug in to almost any network stack. By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug in to Google's Volley project or Square's OkHttp library instead.", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug "};
-        recycler_view.setAdapter(new RecyclerViewAdapterRecom(services));
+
+
+
+
+        li = new ArrayList<>();
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapterClass = new AdapterClass(this, li);
+        recyclerView.setAdapter(adapterClass);
+
+
+//        RecyclerView recycler_view = findViewById(R.id.recycler_view);
+//        recycler_view.setLayoutManager(new LinearLayoutManager(this));
+//        String services[] = {"Sakshi", "Nikhil", "Shruti", "Vedang", "Sagar", "Anuj", "Mallika"};
+//        // String des[] = {"Glide supports fetching, decoding, and displaying video stills, images, and animated GIFs. Glide includes a flexible API that allows developers to plug in to almost any network stack. By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug in to Google's Volley project or Square's OkHttp library instead.", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug ", "By default Glide uses a custom HttpUrlConnection based stack, but also includes utility libraries plug "};
+//        recycler_view.setAdapter(new RecyclerViewAdapterRecom(services));
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
