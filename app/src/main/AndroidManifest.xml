@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home.sendInvite"></activity>
+        <activity android:name=".Home.check"></activity>
+        <activity android:name=".Home.sendInvite" />
         <activity android:name=".Home.ResetPassword" />
         <activity android:name=".Home.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Notification.NotifActivity" />
-        <activity android:name=".Notification.Alert"></activity>
+        <activity android:name=".Notification.Alert" />
         <activity android:name=".Notification.NotifActivitySec" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Search.SearchActivity" />
@@ -39,7 +39,7 @@
         <activity android:name=".Home.EventDetails" />
         <activity android:name=".Home.log" />
         <activity android:name=".Home.AskHave" />
-        <activity android:name=".Home.Mom"></activity>
+        <activity android:name=".Home.Mom" />
         <activity
             android:name=".Notification.Pop"
             android:theme="@style/AppTheme.CustomTheme" />
