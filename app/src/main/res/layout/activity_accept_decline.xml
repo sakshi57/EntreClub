@@ -4,9 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer"
-    android:fitsSystemWindows="true"
-    tools:context=".Home.HomeActivity1">
+    tools:context=".Notification.Alert">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,9 +18,10 @@
             <RelativeLayout
                 android:id="@+id/relLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
-                <include layout="@layout/layout_top_tabs" />
+                <include layout="@layout/layout_top_tabs_alert" />
             </RelativeLayout>
             <!--middle section-->
             <RelativeLayout

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.entreclub.R;
 import com.google.api.Context;
@@ -19,15 +20,29 @@ import java.util.Calendar;
 public class sendInvite extends AppCompatActivity {
 
     private EditText editTextTo, editTextSubject, editTextMessage;
+    String str;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_invite);
 
+        intent = getIntent();
+        //Bundle bundle = new Bundle();
+        str= intent.getStringExtra("URL");
+
+        Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT);
+
         editTextTo = findViewById(R.id.editText4);
         editTextSubject = findViewById(R.id.editText7);
         editTextMessage = findViewById(R.id.editText14);
+
+
+        editTextSubject.setText("Guest Invite");
+        editTextMessage.setText("Hey! I'm inviting you to this event.\nPlease have a look and do join on the platform specified in the URL below -\n" +str);
+
+
 
         Button sendButton = findViewById(R.id.button2);
 
@@ -82,6 +97,7 @@ public class sendInvite extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, message);
+
 
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Choose a Client"));

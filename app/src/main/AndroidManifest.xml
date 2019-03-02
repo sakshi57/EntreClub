@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Notification.NotifActivity" />
+        <activity android:name=".Notification.Alert"></activity>
+        <activity android:name=".Notification.NotifActivitySec" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Search.SearchActivity" />
         <activity android:name=".Share.ShareActivity" />
@@ -30,6 +32,7 @@
         <activity android:name=".Registration.businessInfo" />
         <activity android:name=".Home.Recommendation" />
         <activity android:name=".Home.HomeActivity" />
+        <activity android:name=".Home.HomeActivity1" />
         <activity android:name=".Home.PastEventsActivity" />
         <activity android:name=".EventDetailsActivity" />
         <activity android:name=".Home.EventDetails" />

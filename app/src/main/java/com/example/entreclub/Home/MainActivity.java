@@ -40,7 +40,7 @@ public class MainActivity  extends AppCompatActivity{
     LinearLayout l;
     private EditText editTextMail;
     private EditText editTextPass;
-    private String emailid;
+    private String emailid,password;
     //    ProgressBar progressBar;
     FirebaseAuth mAuth;
 
@@ -91,10 +91,22 @@ public class MainActivity  extends AppCompatActivity{
     }
 
     public void userSignin(View v) {
-
-
         emailid = editTextMail.getText().toString().trim();
-        String password = editTextPass.getText().toString().trim();
+        password = editTextPass.getText().toString().trim();
+//            if(emailid.equals("vedang.kapse@outlook.com")){
+//                Intent intent = new Intent (getApplicationContext(), HomeActivity1.class);
+//                Bundle extras = new Bundle();
+//                extras.putString("emailid", emailid);
+//                intent.putExtras(extras);
+//                startActivity(intent);
+//
+//            }
+////
+//        emailid = editTextMail.getText().toString().trim();
+//        String password = editTextPass.getText().toString().trim();
+
+
+
         //String pw_hash = BCrypt.hashpw(password, BCrypt.gensalt());
 
         if (emailid.isEmpty()) {
@@ -143,16 +155,24 @@ public class MainActivity  extends AppCompatActivity{
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         Boolean emailflag = firebaseUser.isEmailVerified();
 
-        if(emailflag){
 
+    if(emailflag) {
+
+        if (firebaseUser.getEmail().equals("narwade1695@gmail.com") && password.equals("1234567")) {
+
+
+            Intent intent = new Intent(getApplicationContext(), HomeActivity1.class);
+            startActivity(intent);
+        } else {
             //  Toast.makeText(getApplicationContext(),"Sucessful!",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent (getApplicationContext(), HomeActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             Bundle extras = new Bundle();
             extras.putString("emailid", emailid);
             intent.putExtras(extras);
             startActivity(intent);
         }
 
+    }
 
         else{
             Toast.makeText(getApplicationContext(),"Please verify your email!",Toast.LENGTH_SHORT).show();
