@@ -149,6 +149,7 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AdapterClass adapterClass;
     Date date;
+
     List<FeedSecretary> li;
     private FirebaseFirestore db;
     DocumentReference documentReference;
@@ -208,6 +209,7 @@ public class HomeActivity extends AppCompatActivity {
                                 timestamp = d.getTimestamp("Date");
                                 date = timestamp.toDate();
                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
 
                                 str = simpleDateFormat.format(date);
 ////                            d = date.toString();

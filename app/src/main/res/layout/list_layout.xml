@@ -49,19 +49,7 @@ android:id="@+id/relativeLayout">
     android:fontFamily="monospace"
     />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/date"
-    android:textColor="#80000000"
-    android:text="19/07/2018"
-    android:paddingRight="2dp"
-    android:textSize="14dp"
-    android:paddingTop="15dp"
-    android:layout_alignParentRight="true"
-    android:fontFamily="monospace"
-    />
-<TextView
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/dateofevent"

@@ -8,12 +8,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,12 +59,12 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth mauth;
     int year, mont, date;
-
+    private Spinner spinner;
 
     private EditText editTextfirstname, editTextlastname, editTextemailid;
     private EditText editTextcontact, editTextcity, editTextpassword, editTextcpassword;
     private EditText editTextdob, editTextcompanyname, editTextposition, editTextdescription;
-    private String firstname, lastname, emailid, contact, city, dob, password, cpassword, companyname, position, description;
+    private String firstname, lastname, emailid, contact, city, dob, password, cpassword, companyname, position, description,desc;
 
 
     @Override
@@ -87,6 +90,7 @@ public class RegistrationActivity extends AppCompatActivity {
         editTextdescription = findViewById(R.id.editText3);
         radioGroup = findViewById(R.id.rg);
         t1 = (TextView) findViewById(R.id.editText10);
+        spinner=(Spinner)findViewById(R.id.s_categories);
 
 
         Calendar cal = Calendar.getInstance();
@@ -95,6 +99,18 @@ public class RegistrationActivity extends AppCompatActivity {
         date = cal.get(Calendar.DAY_OF_MONTH);
 
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),parent.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -233,7 +249,9 @@ public class RegistrationActivity extends AppCompatActivity {
         position = editTextposition.getText().toString().trim();
         description = editTextdescription.getText().toString().trim();
         //  pw_hash = BCrypt.hashpw(password, BCrypt.gensalt());
+        desc= spinner.getSelectedItem().toString();
 
+        Log.d("spinner text mila",desc);
 
         if (validate()) {
 
@@ -250,7 +268,7 @@ public class RegistrationActivity extends AppCompatActivity {
             entrepreneur.put(key_companyname, companyname);
             entrepreneur.put(key_position, position);
             entrepreneur.put(key_description, description);
-
+            entrepreneur.put("business_category",desc);
             mauth.createUserWithEmailAndPassword(emailid, password);
 
             db.collection("Users").document(emailid).set(entrepreneur)

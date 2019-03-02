@@ -1,15 +1,19 @@
 package com.example.entreclub.Home;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +36,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firestore.v1.Document;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.function.DoubleConsumer;
 
@@ -44,15 +50,17 @@ public class EventDetails extends AppCompatActivity {
     AsksListAdapter asksListAdapter;
     HavesListAdapter havesListAdapter;
     List<AsksListClass> asklist,havelist;
+    ConstraintLayout c;
     StringBuffer b;
     //  Button btn;
     FloatingActionButton btn;
     Intent i;
     String eventId;
     DocumentReference dref;
-    String title,agenda,platform,urls,date;
+    String title,agenda,platform,urls;
     Timestamp timestamp;
     StringBuffer stringBuffer;
+    Date d;
     private  String TAG="Nikhil";
 //    FirebaseUser user;
     String name;
@@ -62,8 +70,11 @@ public class EventDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_details);
+        setContentView(R.layout.activity_event_details2);
         t = (TextView) findViewById(R.id.info);
+
+        c=(ConstraintLayout)findViewById(R.id.c_layout);
+       //c.setBackgroundColor(getResources().getColor(R.color.blue));
         db = FirebaseFirestore.getInstance();
         db1 = FirebaseFirestore.getInstance();
         getasks = FirebaseFirestore.getInstance();
@@ -71,10 +82,17 @@ public class EventDetails extends AppCompatActivity {
         recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
 
-
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
+                finish();
+            }
+        });
 
         stringBuffer = new StringBuffer();
-
+        final TextView t1 = (TextView) findViewById(R.id.t_link);
         asklist = new ArrayList<>();
         havelist = new ArrayList<>();
         recyclerView1 = (RecyclerView) findViewById(R.id.recyclerview1);
@@ -102,11 +120,16 @@ public class EventDetails extends AppCompatActivity {
 
                             title = documentSnapshot.getString("Title");
                             agenda = documentSnapshot.getString("Agenda");
-                            date = documentSnapshot.getTimestamp("Date").toString();
+                           timestamp = documentSnapshot.getTimestamp("Date");
+                           d=timestamp.toDate();
+
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                          String str_date = simpleDateFormat.format(d);
+
                             platform = documentSnapshot.getString("Platform");
                             urls = documentSnapshot.getString("Link");
-
-                            stringBuffer.append("Title : " + title + "Agenda :  " + agenda);
+                            t1.setText(urls);
+                            stringBuffer.append("Title         : " + title + "\nDate        : "+str_date+"\nPlatform : "+platform);
                             t.setText(stringBuffer);
                         }
                     }

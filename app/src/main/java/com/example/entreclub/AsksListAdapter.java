@@ -36,7 +36,7 @@ public class AsksListAdapter extends RecyclerView.Adapter<AsksListAdapter.AsksLi
     public void onBindViewHolder(@NonNull AsksListHolder asksListHolder, int i) {
 
         AsksListClass a=li.get(i);
-        asksListHolder.t1.setText(a.getEmailid()+ " posted :");
+        asksListHolder.t1.setText(a.getEmailid());
         asksListHolder.t2.setText(a.getDescription());
 
     }
