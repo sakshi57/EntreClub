@@ -213,9 +213,8 @@ public class HomeActivity extends AppCompatActivity {
 
                                 str = simpleDateFormat.format(date);
 ////                            d = date.toString();
-                                id = d.getString("id");
-
-                                FeedSecretary feedSecretary = new FeedSecretary(title, str, Agenda, id);
+                                id = d.getId().toString();
+                                FeedSecretary feedSecretary = new FeedSecretary(title, str, Agenda,id );
                                 li.add(feedSecretary);
 
 

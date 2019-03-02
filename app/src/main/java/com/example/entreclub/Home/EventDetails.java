@@ -3,7 +3,9 @@ package com.example.entreclub.Home;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.provider.DocumentsContract;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -13,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +41,7 @@ import com.google.firestore.v1.Document;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.function.DoubleConsumer;
@@ -53,7 +57,7 @@ public class EventDetails extends AppCompatActivity {
     ConstraintLayout c;
     StringBuffer b;
     //  Button btn;
-    FloatingActionButton btn;
+    FloatingActionButton btn,btn2;
     Intent i;
     String eventId;
     DocumentReference dref;
@@ -66,6 +70,8 @@ public class EventDetails extends AppCompatActivity {
     String name;
 
     DocumentReference ref;
+//    Calendar cal = Calendar.getInstance();
+//    Intent intent = new Intent(Intent.ACTION_INSERT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +87,38 @@ public class EventDetails extends AppCompatActivity {
         dbget = FirebaseFirestore.getInstance();
         recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
+        Button b3 = findViewById(R.id.button2);
+
+////        b3.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+
+
+
+
+////        intent.setType("vnd.android.cursor.item/event");
+////     //   intent.putExtra("Start Time", cal.getTimeInMillis());
+////        intent.putExtra("All day", true);
+////        intent.putExtra("Rule", "FREQ=YEARLY");
+////        intent.putExtra("End Time", cal.getTimeInMillis() + 60 * 60 * 1000);
+////     //   intent.putExtra("Title", "Weekend brunch with all the Entrepreneurs from EntreClub");
+////       // startActivity(intent);
+//
+//            }
+//        });
+
+        Button b4 = findViewById(R.id.button3);
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+        Intent sky = new Intent("android.intent.action.VIEW", Uri.parse("https://meet.google.com/krk-mpcb-mnq"));
+        startActivity(sky);
+
+            }
+        });
 
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -92,13 +130,14 @@ public class EventDetails extends AppCompatActivity {
         });
 
         stringBuffer = new StringBuffer();
-        final TextView t1 = (TextView) findViewById(R.id.t_link);
+       // final TextView t1 = (TextView) findViewById(R.id.t_link);
         asklist = new ArrayList<>();
         havelist = new ArrayList<>();
         recyclerView1 = (RecyclerView) findViewById(R.id.recyclerview1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
         i = getIntent();
         btn = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        btn2 = (FloatingActionButton) findViewById(R.id.floatingActionButton1);
         asksListAdapter = new AsksListAdapter(this, asklist);
         recyclerView1.setAdapter(asksListAdapter);
 
@@ -123,12 +162,17 @@ public class EventDetails extends AppCompatActivity {
                            timestamp = documentSnapshot.getTimestamp("Date");
                            d=timestamp.toDate();
 
+
+//                            intent.putExtra("Title", "dcbjdsbsdcb");
+//                            intent.putExtra("Start Time", d.toString());
+
+
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                           String str_date = simpleDateFormat.format(d);
 
                             platform = documentSnapshot.getString("Platform");
                             urls = documentSnapshot.getString("Link");
-                            t1.setText(urls);
+                       //     t1.setText(urls);
                             stringBuffer.append("Title         : " + title + "\nDate        : "+str_date+"\nPlatform : "+platform);
                             t.setText(stringBuffer);
                         }
@@ -232,10 +276,44 @@ public class EventDetails extends AppCompatActivity {
         });
 
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),sendInvite.class);
+                 startActivity(intent);
+            }
+        });
+
+
 
 
 
         }
+
+
+    public void setCalendar(View v) {
+
+//        intent.setType("vnd.android.cursor.item/event");
+//
+//   intent.putExtra("All day", true);
+// intent.putExtra("Rule", "FREQ=YEARLY");
+//   intent.putExtra("End Time", cal.getTimeInMillis() + 60 * 60 * 1000);
+//
+// startActivity(intent);
+//    }
+
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.Events.TITLE, title)
+              //  .putExtra(CalendarContract.Events.EVENT_LOCATION, location)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, d.getTime());
+               // .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+
         }
 
 

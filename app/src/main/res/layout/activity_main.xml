@@ -85,8 +85,9 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:paddingTop="10dp"
-                android:textAlignment="textEnd"
+                android:paddingRight="15dp"
                 android:text="Forgot Password?"
+                android:onClick="forgotPassword"
                 android:fontFamily="monospace"
                 android:textColor="@color/blue" />
 

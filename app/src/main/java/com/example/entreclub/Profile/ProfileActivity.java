@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
     private static final String key_companyname = "companyname";
     private static final String key_position = "position";
     private static final String key_description = "description";
-
+    private static final int ACTIVITY_NUM = 2;
     private static final int image_Request =1;
     private Button choose;
     private ImageView imageView;
@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
     private StorageReference getUrl;
     private DocumentReference documentReference;
 
-
+Context mContext;
     Uri downloadUri;
 
     @Override
@@ -98,7 +98,7 @@ public class ProfileActivity extends AppCompatActivity {
         dbref = db.collection("Users").document(emailid);
 
 
-
+            setupbottomnavigationview();
         editTextfirstname = findViewById(R.id.firstname);
         editTextlastname = findViewById(R.id.lastname);
        // editTextemailid = findViewById(R.id.username);
@@ -402,7 +402,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         }
-    }}
+    }
 
 //
 //public class ProfileActivity extends AppCompatActivity {
@@ -494,16 +494,17 @@ public class ProfileActivity extends AppCompatActivity {
 //    }
 //
 //*/
-//    //bottom navigation setup
-//    private void setupbottomnavigationview(){
-//        Log.d(TAG, "setupbottomnavigationview: Setting up Bottom Navigation View");
-//        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomnav);
-//        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-//        BottomNavigationViewHelper.enablenavigation(mContext,bottomNavigationViewEx);
-//        Menu menu = bottomNavigationViewEx.getMenu();
-//        MenuItem menuItem = ((Menu) menu).getItem(ACTIVITY_NUM);
-//        menuItem.setChecked(true);
-//    }
+    //bottom navigation setup
+    private void setupbottomnavigationview(){
+        //Log.d(TAG, "setupbottomnavigationview: Setting up Bottom Navigation View");
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomnav);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enablenavigation(mContext,bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = ((Menu) menu).getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+    }
+}
 //
 //
 //

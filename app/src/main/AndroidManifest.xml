@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home.ResetPassword"></activity>
+        <activity android:name=".Home.sendInvite"></activity>
+        <activity android:name=".Home.ResetPassword" />
         <activity android:name=".Home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,17 +30,17 @@
         <activity android:name=".Registration.businessInfo" />
         <activity android:name=".Home.Recommendation" />
         <activity android:name=".Home.HomeActivity" />
-        <activity android:name=".Home.PastEventsActivity"></activity>
-        <activity android:name=".EventDetailsActivity"></activity>
-        <activity android:name=".Home.EventDetails"></activity>
-        <activity android:name=".Home.log"></activity>
-        <activity android:name=".Home.AskHave"></activity>
+        <activity android:name=".Home.PastEventsActivity" />
+        <activity android:name=".EventDetailsActivity" />
+        <activity android:name=".Home.EventDetails" />
+        <activity android:name=".Home.log" />
+        <activity android:name=".Home.AskHave" />
         <activity
             android:name=".Notification.Pop"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".Notification.Pop_no_event"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>
