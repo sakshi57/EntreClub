@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.entreclub.Home.Mom;
 import com.example.entreclub.Home.log;
 
 import java.util.List;
@@ -57,6 +58,14 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
 
             }
         })     ;
+
+        eventViewHolder.b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mCtx, Mom.class);
+                mCtx.startActivity(intent);
+            }
+        });
         //
 //        eventViewHolder.b1.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -84,10 +93,12 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
             t1=itemView.findViewById(R.id.textTitle);
             t2=itemView.findViewById(R.id.fetcheddate);
             t3=itemView.findViewById(R.id.desc);
-            b1=itemView.findViewById(R.id.btnexplore);
+            b1=itemView.findViewById(R.id.btn_explore);
             b2=itemView.findViewById(R.id.btn_view_mom);
             b3=itemView.findViewById(R.id.btn_add_log);
             b4=itemView.findViewById(R.id.btn_log);
+
+
 
         }
 

@@ -126,6 +126,7 @@
                 android:background="@drawable/ic_shape"
                 android:textColor="#ffffff"
                 android:text="ADD MOM"
+
                 android:fontFamily="monospace"/>
 
             <Button
