@@ -26,13 +26,13 @@
         android:layout_marginBottom="8dp"
         android:text="DATE"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/t_platform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/t_platform"
         android:layout_width="352dp"
         android:layout_height="271dp"
         android:layout_marginStart="8dp"

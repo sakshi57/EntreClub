@@ -52,7 +52,7 @@ public class AsksListAdapter extends RecyclerView.Adapter<AsksListAdapter.AsksLi
         public AsksListHolder(@NonNull View itemView) {
             super(itemView);
             t1=itemView.findViewById(R.id.textView4);
-            t2=itemView.findViewById(R.id.textView5);
+            t2=itemView.findViewById(R.id.t_platform);
         }
     }
 }
