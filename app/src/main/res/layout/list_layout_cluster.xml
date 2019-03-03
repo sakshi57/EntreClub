@@ -49,18 +49,6 @@
                 android:fontFamily="monospace"
                 />
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/date"-->
-                <!--android:textColor="#80000000"-->
-                <!--android:text="19/07/2018"-->
-                <!--android:paddingRight="2dp"-->
-                <!--android:textSize="14dp"-->
-                <!--android:paddingTop="15dp"-->
-                <!--android:layout_alignParentRight="true"-->
-                <!--android:fontFamily="monospace"-->
-                <!--/>-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,54 +107,15 @@
                 android:layout_below="@+id/agenda"
                 />
             <Button
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:id="@+id/btn_explore"
                 android:layout_below="@+id/desc"
-                android:background="@drawable/ic_shape"
+                android:background="#76287c"
                 android:textColor="#ffffff"
-                android:text="ADD MOM"
+                android:text="VIEW MOM"
 
                 android:fontFamily="monospace"/>
-
-            <Button
-                android:id="@+id/btn_view_mom"
-                android:layout_width="160dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/btn_explore"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="-41dp"
-                android:layout_toRightOf="@id/btn_explore"
-                android:background="@drawable/ic_shape"
-                android:fontFamily="monospace"
-                android:text="VIEW MOM"
-                android:textColor="#ffffff" />
-            <Button
-                android:id="@+id/btn_add_log"
-                android:layout_width="160dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/desc"
-                android:layout_marginTop="51dp"
-                android:background="@drawable/ic_shape"
-                android:fontFamily="monospace"
-                android:text="ADD LOG"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:id="@+id/btn_log"
-                android:layout_width="160dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/btn_view_mom"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="13dp"
-                android:layout_toRightOf="@+id/btn_add_log"
-                android:background="@drawable/ic_shape"
-                android:fontFamily="monospace"
-                android:text="VIEW LOG"
-                android:onClick="log"
-                android:textColor="#ffffff" />
-
-
 
 
             <!--<ImageView-->

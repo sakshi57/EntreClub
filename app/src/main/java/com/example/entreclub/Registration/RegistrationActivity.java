@@ -269,6 +269,8 @@ public class RegistrationActivity extends AppCompatActivity {
             entrepreneur.put(key_position, position);
             entrepreneur.put(key_description, description);
             entrepreneur.put("business_category",desc);
+            entrepreneur.put("flag","0");
+
             mauth.createUserWithEmailAndPassword(emailid, password);
 
             db.collection("Users").document(emailid).set(entrepreneur)

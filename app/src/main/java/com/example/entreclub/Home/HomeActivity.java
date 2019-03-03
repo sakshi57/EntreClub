@@ -285,11 +285,11 @@ public class HomeActivity extends AppCompatActivity {
                             startActivity(i);
                             break;
                         case R.id.about:
-                            Intent k = new Intent(HomeActivity.this, Recommendation.class);
+                            Intent k = new Intent(HomeActivity.this, AboutUs.class);
                             startActivity(k);
                             break;
                         case R.id.members:
-                            Intent j = new Intent(HomeActivity.this, Recommendation.class);
+                            Intent j = new Intent(HomeActivity.this, MembersList.class);
                             startActivity(j);
                             break;
                         case R.id.signout:

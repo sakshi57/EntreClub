@@ -73,8 +73,8 @@ public class AddLog extends AppCompatActivity {
         setContentView(R.layout.activity_add_log);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String event_id;// = extras.get("event_id").toString();
-        event_id = "1";
+        String event_id=extras.get("event_id").toString();
+        //event_id = "1";
 
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +101,7 @@ public class AddLog extends AppCompatActivity {
     {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String event_id="1";// = extras.get("event_id").toString();
+        String event_id = extras.get("event_id").toString();
 
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public class AddLog extends AppCompatActivity {
         l.put("to_user",to_user);
         l.put("amount",amount);
         l.put("service_consumed",service_consumed);
-        check_user_existence(from_user);
+        //check_user_existence(from_user);
         /*if(!check_user_existence(from_user))
         {
             Toast.makeText(MainActivity.this,"From User is not a valid User",Toast.LENGTH_LONG).show();
@@ -139,6 +139,8 @@ public class AddLog extends AppCompatActivity {
         }
         else
         {*/
+
+
         db.collection("Events").document(event_id).collection("Logs")
                 //db.collection("Temp")
                 .add(l)

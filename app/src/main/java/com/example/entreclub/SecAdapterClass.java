@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.entreclub.Home.AddLog;
 import com.example.entreclub.Home.Mom;
 import com.example.entreclub.Home.ViewMom;
 import com.example.entreclub.Home.log;
@@ -60,6 +61,26 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
             }
         })     ;
 
+
+
+
+
+        eventViewHolder.b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mCtx, AddLog.class);
+                intent.putExtra("event_id",e.getId());
+                mCtx.startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
         eventViewHolder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +95,7 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mCtx, ViewMom.class);
+                intent.putExtra("event_id",e.getId());
                 mCtx.startActivity(intent);
             }
         });

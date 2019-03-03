@@ -13,6 +13,7 @@ import com.example.entreclub.Notification.Alert;
 import com.example.entreclub.Notification.NotifActivity;
 import com.example.entreclub.Notification.NotifActivitySec;
 import com.example.entreclub.Profile.ProfileActivity;
+import com.example.entreclub.Profile.updateProfile;
 import com.example.entreclub.R;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -45,7 +46,7 @@ public class BottomNavigationViewSecHelper {
                        context.startActivity(intent3);                      //ACTIVITY_NUM=4
                        break;
                    case R.id.ic_group:
-                       Intent intent5 = new Intent(context, ProfileActivity.class);
+                       Intent intent5 = new Intent(context, updateProfile.class);
                        context.startActivity(intent5);                      //ACTIVITY_NUM=4
                        break;
 

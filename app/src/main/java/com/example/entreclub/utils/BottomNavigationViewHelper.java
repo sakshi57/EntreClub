@@ -36,9 +36,9 @@ public class BottomNavigationViewHelper {
                        context.startActivity(intent1);                      //ACTIVITY_NUM=0
                    break;
                    case R.id.ic_alert:
-                       Intent intent4 = new Intent(context, NotifActivity.class);
-                       context.startActivity(intent4);                      //ACTIVITY_NUM=3
-                       break;
+                     Intent intent4 = new Intent(context, NotifActivity.class);
+                    context.startActivity(intent4);                      //ACTIVITY_NUM=3
+                      break;
                    case R.id.ic_group:
                        Intent intent5 = new Intent(context, ProfileActivity.class);
                        context.startActivity(intent5);                      //ACTIVITY_NUM=4

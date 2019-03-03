@@ -208,6 +208,7 @@ public class PastEventsActivity extends AppCompatActivity {
 
                                 timestamp = d.getTimestamp("Date");
                                 date = timestamp.toDate();
+
                                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -216,9 +217,13 @@ public class PastEventsActivity extends AppCompatActivity {
 //                                date = timestamp.toString();
 ////                            d = date.toString();
                                 id = d.getString("id");
-
+                                Date da = new Date();
                                 FeedSecretary feedSecretary = new FeedSecretary(title, str, Agenda, id);
-                                li.add(feedSecretary);
+                                if((da.getTime()-date.getTime())>0)
+                                {
+                                    li.add(feedSecretary);
+                                }
+
 
 
                                 adapterClass.notifyDataSetChanged();

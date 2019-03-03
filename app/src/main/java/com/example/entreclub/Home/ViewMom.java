@@ -1,5 +1,6 @@
 package com.example.entreclub.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,7 +25,6 @@ public class ViewMom extends AppCompatActivity {
     TextView t1,t2,t3,t4,t5,t6,t7,t8;
     FirebaseFirestore db;
     DocumentReference dr;
-    String str = "GxWn6t74SvKa4HtvK8er";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +37,9 @@ public class ViewMom extends AppCompatActivity {
                 finish();
             }
         });
-
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String str=extras.get("event_id").toString();
         FirebaseApp.initializeApp(this);
         db=FirebaseFirestore.getInstance();
 
@@ -59,6 +61,10 @@ public class ViewMom extends AppCompatActivity {
 
     public void getEventDetails()
     {
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String str=extras.get("event_id").toString();
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -76,12 +82,12 @@ public class ViewMom extends AppCompatActivity {
                 Date d =  s3.toDate();
                 String st = d.toString();
                 t2.setText(st);
-                //String s4=documentSnapshot.getString("Decisions made");
+                String s4=documentSnapshot.getString("Decisions");
                 Log.d("lolo",st);
-                //t3.setText(s4);
+                t3.setText(s4);
                 String s5=documentSnapshot.getString("Amendments");
                 t4.setText(s5);
-                String s6=documentSnapshot.getString("Future Scope");
+                String s6=documentSnapshot.getString("Futurescope");
                 t5.setText(s6);
                 String s7=documentSnapshot.getString("Link");
                 t6.setText(s7);

@@ -1,28 +1,33 @@
-package com.example.entreclub.Notification;
+package com.example.entreclub.Home;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.example.entreclub.R;
-import com.example.entreclub.utils.BottomNavigationViewHelper;
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.squareup.timessquare.CalendarPickerView;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
-public class NotifActivity extends AppCompatActivity {
+        import android.content.Context;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.support.annotation.Nullable;
+        import android.support.v7.app.AppCompatActivity;
+        import android.util.Log;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.widget.Toast;
+
+        import com.example.entreclub.Notification.Pop;
+        import com.example.entreclub.Notification.Pop_no_event;
+        import com.example.entreclub.R;
+        import com.example.entreclub.utils.BottomNavigationViewHelper;
+        import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+        import com.squareup.timessquare.CalendarPickerView;
+
+        import java.text.DateFormat;
+        import java.util.ArrayList;
+        import java.util.Calendar;
+        import java.util.Date;
+
+public class PastEventsEntre extends AppCompatActivity {
     private static final String TAG = "searchactivity";
-    private Context mContext = NotifActivity.this;
+    private Context mContext = PastEventsEntre.this;
     private static final int ACTIVITY_NUM = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +59,7 @@ public class NotifActivity extends AppCompatActivity {
 
                 String selectdate = DateFormat.getDateInstance(DateFormat.FULL).format(date);
                 //Toast.makeText(NotifActivity.this,"EVENT : ENTHUSIA",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(NotifActivity.this, Pop.class));
+                startActivity(new Intent(PastEventsEntre.this, Pop.class));
 
                 datepicker.init(today,nextyear.getTime()).inMode(CalendarPickerView.SelectionMode.MULTIPLE).withSelectedDates(dates);
 
@@ -64,7 +69,7 @@ public class NotifActivity extends AppCompatActivity {
             @Override
             public void onDateSelected(Date date) {
                 String selectdate = DateFormat.getDateInstance(DateFormat.FULL).format(date);
-                startActivity(new Intent(NotifActivity.this, Pop_no_event.class));
+                startActivity(new Intent(PastEventsEntre.this, Pop_no_event.class));
                 datepicker.init(today,nextyear.getTime()).inMode(CalendarPickerView.SelectionMode.MULTIPLE).withSelectedDates(dates);
 
 //                onDateUnselected(date);
@@ -91,6 +96,7 @@ public class NotifActivity extends AppCompatActivity {
         menuItem.setChecked(true);
     }
 }
+
 
 
 

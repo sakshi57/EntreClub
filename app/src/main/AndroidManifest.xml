@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home.check"></activity>
+        <activity android:name=".Home.MembersList"></activity>
+        <activity android:name=".Home.AboutUs" />
+        <activity android:name=".Home.check" />
         <activity android:name=".Home.sendInvite" />
         <activity android:name=".Home.ResetPassword" />
         <activity android:name=".Home.MainActivity">
@@ -40,8 +42,8 @@
         <activity android:name=".Home.log" />
         <activity android:name=".Home.AskHave" />
         <activity android:name=".Home.Mom" />
-        <activity android:name=".Home.ViewMom"></activity>
-        <activity android:name=".Home.AddLog"></activity>
+        <activity android:name=".Home.ViewMom" />
+        <activity android:name=".Home.AddLog" />
         <activity
             android:name=".Notification.Pop"
             android:theme="@style/AppTheme.CustomTheme" />

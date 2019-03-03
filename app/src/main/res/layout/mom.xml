@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView2"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -52,19 +53,19 @@
                 android:text="Event Name "
                 android:textSize="20dp"
                 />
+
             <TextView
-                android:textSize="16dp"
-                android:textColor="@color/blue"
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/event_name"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Date"
 
-                android:layout_below="@+id/event_name"
+                android:textColor="@color/blue"
+
+                android:textSize="16dp"
 
 
                 />
@@ -95,6 +96,9 @@
                 android:layout_marginBottom="20dp"
                 android:layout_below="@+id/decision_made"
                 android:hint="Decisions Made"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:backgroundTint="@color/grey"
                 />
 
             <TextView
@@ -132,6 +136,9 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="20dp"
                 android:hint="Remarks :"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:backgroundTint="@color/grey"
                 android:layout_below="@+id/remarks" />
 
             <EditText
@@ -144,7 +151,10 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginEnd="8dp"
                 android:hint="Amendments"
-                android:layout_below="@id/amendments" />
+                android:layout_below="@id/amendments"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:backgroundTint="@color/grey"/>
 
 
 
@@ -158,6 +168,9 @@
                 android:layout_marginBottom="20dp"
                 android:inputType="textMultiLine"
                 android:layout_below="@+id/future_scope"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:backgroundTint="@color/grey"
                 />
 
 

@@ -1,6 +1,7 @@
 package com.example.entreclub.Profile;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -18,14 +21,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.entreclub.R;
+import com.example.entreclub.utils.BottomNavigationViewHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -46,12 +52,13 @@ public class updateProfile extends AppCompatActivity {
     private static final String key_companyname = "companyname";
     private static final String key_position = "position";
     private static final String key_description = "description";
-
+    private static final int ACTIVITY_NUM = 2;
     private static final int image_Request =1;
     private Button choose;
     private ImageView imageView;
     private ProgressBar progressBar;
     Uri uri;
+    Context mcontext;
 
     private EditText editTextfirstname,editTextlastname,editTextemailid;
     private EditText editTextcontact,editTextcity;
@@ -65,23 +72,30 @@ public class updateProfile extends AppCompatActivity {
     private DocumentReference documentReference;
     Uri downloadUri;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        emailid = extras.getString("emailid");
+//        Intent intent = getIntent();
+//        Bundle extras = intent.getExtras();
+//        emailid = extras.getString("emailid");
       //  Toast.makeText(getApplicationContext(),"email id " +emailid,Toast.LENGTH_SHORT).show();
 
 
+
         FirebaseApp.initializeApp(this);
+        FirebaseAuth mauth=FirebaseAuth.getInstance();
+        emailid = mauth.getCurrentUser().getEmail();
         db = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
         getUrl = FirebaseStorage.getInstance().getReference().child(emailid + ".jpg");
         documentReference = db.collection("Users").document(emailid);
         dbref = db.collection("Users").document(emailid);
+
+        setupbottomnavigationview();
+
 
 
         editTextfirstname = findViewById(R.id.firstname);
@@ -140,7 +154,7 @@ public class updateProfile extends AppCompatActivity {
                         if(documentSnapshot.exists()){
                              firstname = documentSnapshot.getString(key_firstname);
                              lastname = documentSnapshot.getString(key_lastname);
-                             emailid = documentSnapshot.getString(key_emailid);
+                          //   emailid = documentSnapshot.getString(key_emailid);
                              contact = documentSnapshot.getString(key_contact);
                              city = documentSnapshot.getString(key_city);
                              companyname = documentSnapshot.getString(key_companyname);
@@ -151,7 +165,7 @@ public class updateProfile extends AppCompatActivity {
                           //  Glide.with(getApplicationContext()).load("https://www.google.com/imgres?imgurl=https%3A%2F%2Fd1kkg0o175tdyf.cloudfront.net%2Flarge%2Fp_9cd2339d2f74-2018-10-30-17-35-18-000216.jpg&imgrefurl=https%3A%2F%2Fmagicpin.in%2Fusers%2F871367&docid=e4-_KrF4jjr65M&tbnid=Q977tU2t-IcMQM%3A&vet=10ahUKEwirwMTwgt7gAhUHRY8KHVeTASUQMwg8KAEwAQ..i&w=512&h=512&bih=785&biw=1482&q=nikhil%20narwade&ved=0ahUKEwirwMTwgt7gAhUHRY8KHVeTASUQMwg8KAEwAQ&iact=mrc&uact=8").into(imageView);
 
 //                            Picasso.with(getApplicationContext()).load("https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi1mtfp6tzgAhVDiHAKHcdYC4QQjRx6BAgBEAU&url=https%3A%2F%2Fmagicpin.in%2Fusers%2F871367&psig=AOvVaw0b1SZHrX6igcUeq_Gd4qfQ&ust=1551388531558344").into(imageView);
-                            editTextemailid.setText(emailid, TextView.BufferType.EDITABLE);
+                        //    editTextemailid.setText(emailid, TextView.BufferType.EDITABLE);
                             editTextfirstname.setText(firstname, TextView.BufferType.EDITABLE);
                             editTextlastname.setText(lastname, TextView.BufferType.EDITABLE);
                             editTextcontact.setText(contact, TextView.BufferType.EDITABLE);
@@ -387,4 +401,17 @@ public class updateProfile extends AppCompatActivity {
 
 
     }
-}}
+}
+
+
+    private void setupbottomnavigationview(){
+        //Log.d(TAG, "setupbottomnavigationview: Setting up Bottom Navigation View");
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomnav);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enablenavigation(mcontext,bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = ((Menu) menu).getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+    }
+}
+

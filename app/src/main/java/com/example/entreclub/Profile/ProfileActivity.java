@@ -353,7 +353,7 @@ Context mContext;
     public void updateProfile(View v){
         firstname = editTextfirstname.getText().toString().trim();
         lastname = editTextlastname.getText().toString().trim();
-        emailid = editTextemailid.getText().toString().trim();
+     //   emailid = editTextemailid.getText().toString().trim();
         contact = editTextcontact.getText().toString().trim();
         city = editTextcity.getText().toString().trim();
         companyname = editTextcompanyname.getText().toString().trim();
@@ -370,7 +370,7 @@ Context mContext;
             Map<String, Object> entrepreneur = new HashMap<>();
             entrepreneur.put(key_firstname,firstname);
             entrepreneur.put(key_lastname,lastname);
-            entrepreneur.put(key_emailid,emailid);
+         //   entrepreneur.put(key_emailid,emailid);
             entrepreneur.put(key_contact,contact);
             entrepreneur.put(key_city,city);
             entrepreneur.put(key_companyname,companyname);

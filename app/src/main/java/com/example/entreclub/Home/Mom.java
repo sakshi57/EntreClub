@@ -89,8 +89,8 @@ String extras;
                 if(documentSnapshot.exists()){
                     TextView temp =  (TextView)findViewById(R.id.event_name);
                     temp.setText(documentSnapshot.get("Title").toString());
-                    temp =  (TextView)findViewById(R.id.date);
-                    temp.setText(documentSnapshot.get("Date").toString());
+                    //temp =  (TextView)findViewById(R.id.date);
+                  //  temp.setText(documentSnapshot.get("Date").toString());
                 }
             }
         });
@@ -108,8 +108,8 @@ String extras;
         //Toast.makeText(MainActivity.this,"Remarks " + desc_remarks.getText().toString().trim(),Toast.LENGTH_LONG).show();
         db  = FirebaseFirestore.getInstance();
         Map<String,Object> datatoSave = new HashMap<String, Object>();
-        datatoSave.put("Decisions made",desc_decision.getText().toString().trim());
-        datatoSave.put("Future Scope",desc_future_scope.getText().toString().trim());
+        datatoSave.put("Decisions",desc_decision.getText().toString().trim());
+        datatoSave.put("Futurescope",desc_future_scope.getText().toString().trim());
         datatoSave.put("Amendments",desc_amend.getText().toString().trim());
         datatoSave.put("Remarks",desc_remarks.getText().toString().trim());
 
@@ -160,10 +160,19 @@ String extras;
                           //  Log.d("nikhil",arr[i]);
                             i++;
                         }
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.putExtra(Intent.EXTRA_EMAIL, arr);
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "dugcsdj");
+                        intent.putExtra(Intent.EXTRA_TEXT, "Added mom mail");
+
+
+                        intent.setType("message/rfc822");
+                        startActivity(Intent.createChooser(intent, "Choose a Client"));
+
                     }
                 });
         Log.d("nikhil ss11",Integer.toString(str1.size()));
-                        sendMails();
+                        //sendMails();
 
     }
 

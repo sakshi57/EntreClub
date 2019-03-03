@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView2"
+
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -87,9 +89,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
                 android:layout_marginBottom="20dp"
                 android:layout_below="@+id/from"
                 android:hint="Name of User"
+                android:backgroundTint="@color/grey"
+                android:textColorHint="@color/grey"
                 />
 
             <TextView
@@ -111,7 +116,10 @@
                 android:layout_width="351dp"
                 android:layout_height="86dp"
                 android:hint="Name of the User"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
                 android:layout_marginTop="0dp"
+                android:backgroundTint="@color/grey"
                 android:layout_marginBottom="20dp"
                 android:inputType="textMultiLine"
                 android:layout_below="@+id/to"
@@ -140,6 +148,9 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
                 android:layout_below="@+id/service"
                 android:hint="Service "
                 />
@@ -168,6 +179,9 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="20dp"
                 android:layout_below="@+id/amount1"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
                 android:hint="Total transaction Cost"
                 />
 

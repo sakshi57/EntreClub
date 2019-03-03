@@ -23,11 +23,14 @@ import android.widget.Toast;
 import com.example.entreclub.R;
 import com.example.entreclub.Registration.RegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -43,6 +46,7 @@ public class MainActivity  extends AppCompatActivity{
     private String emailid,password;
     //    ProgressBar progressBar;
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
 
     @Override
@@ -53,6 +57,8 @@ public class MainActivity  extends AppCompatActivity{
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+
+        db= FirebaseFirestore.getInstance();
 
         tNewUser = (TextView) findViewById(R.id.newUser);
         l = (LinearLayout) findViewById(R.id.LayoutInput);
@@ -131,23 +137,58 @@ public class MainActivity  extends AppCompatActivity{
             editTextPass.setError("Password must be atleast 7 characters long!");
             editTextPass.requestFocus();
             return;
+
         }
+
+
+        db.collection("Users").document(emailid)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if( documentSnapshot.getString("flag").equals("1")){
+
+                                mAuth.signInWithEmailAndPassword(emailid, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                        if(task.isSuccessful()){
+
+                                            //  Toast.makeText(getApplicationContext(),"Sucessful!",Toast.LENGTH_SHORT).show();
+                                            emailVerification();
+                                        }
+                                        else{
+                                            Toast.makeText(getApplicationContext(),"Unsuccessful!",Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                });
+                        }
+
+                        else{
+                            Toast.makeText(getApplicationContext(),"Request is pennding with or rejected by Authority!",Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+
 //        progressBar.setVisibility(View.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword(emailid, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
-                    //  Toast.makeText(getApplicationContext(),"Sucessful!",Toast.LENGTH_SHORT).show();
-                    emailVerification();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Unsuccessful!",Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
