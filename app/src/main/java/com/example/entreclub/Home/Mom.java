@@ -2,39 +2,55 @@ package com.example.entreclub.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.sax.StartElementListener;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.entreclub.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
+
 
 public class Mom extends AppCompatActivity {
-    private FirebaseFirestore db;
-    String event_id="GxWn6t74SvKa4HtvK8er";
+    private FirebaseFirestore db,db1;
+    String event_id;
+    Set<String> emails=new HashSet<String>();
+    final Set<String> str1 = new HashSet<String>();
+    String[] arr = new String[50];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mom);
         db = FirebaseFirestore.getInstance();
+        db1 = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+
         //Date t;
         //pass event_id in Intent from the parent activity
-     //   event_id= extras.get("event_id").toString();
+        event_id= extras.get("event_id").toString();
 
        /* db.collection("Events")
        /* db.collection("Events")
@@ -97,7 +113,7 @@ public class Mom extends AppCompatActivity {
         datatoSave.put("Amendments",desc_amend.getText().toString().trim());
         datatoSave.put("Remarks",desc_remarks.getText().toString().trim());
 
-        db.collection("Events").document("1")
+        db.collection("Events").document(event_id)
                 .set(datatoSave, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -120,7 +136,67 @@ public class Mom extends AppCompatActivity {
         temp = (TextView)findViewById(R.id.desc_remarks);
         temp.setText("");
 
+         db.collection("Events").document(event_id).collection("Logs").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        for(DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+
+                            String from = documentSnapshot.getString("from_users");
+                            String to =  documentSnapshot.getString("to_user");
+
+                            str1.add(from);
+                            str1.add(to);
+                        }
+
+                        Log.d("nikhil ssss",Integer.toString(str1.size()));
+                        Iterator value = str1.iterator();
+                        Log.d("nikhil ss",Integer.toString(str1.size()));
+                        int i=0;
+                        for(String s:str1){
+
+                            arr[i] = s;
+                            Log.d("nikhil",arr[i]);
+                            i++;
+                        }
+                    }
+                });
+        Log.d("nikhil ss11",Integer.toString(str1.size()));
+                        sendMails();
+
     }
+
+
+
+    public void sendMails(){
+        Iterator value = str1.iterator();
+        Log.d("nikhil ss",Integer.toString(str1.size()));
+        int i=0;
+        while(value.hasNext())
+        {
+
+            arr[i] = value.next().toString();
+            Log.d("nikhil",arr[i]);
+            i++;
+        }
+
+
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, arr);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "dugcsdj");
+        intent.putExtra(Intent.EXTRA_TEXT, "Added mom mail");
+
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose a Client"));
+
+    }
+
+
+
+
 
 
 

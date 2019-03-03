@@ -63,6 +63,7 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mCtx, Mom.class);
+                intent.putExtra("event_id",e.getId());
                 mCtx.startActivity(intent);
             }
         });

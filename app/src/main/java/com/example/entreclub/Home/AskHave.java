@@ -82,6 +82,7 @@ public class AskHave extends AppCompatActivity {
                     finish();
                 }
 
+
 //                String mail=e1.getText().toString();
 ////                AddNeeds a=new AddNeeds(type,desc,mail);
 //
