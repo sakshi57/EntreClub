@@ -27,7 +27,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/t_platform"
             android:layout_width="345dp"
             android:textSize="16dp"
             android:textColor="@color/black"

@@ -27,8 +27,9 @@ public class log extends AppCompatActivity {
     static String[] SPACESHIPS = { "No.","From", "To", "Service", "Count" };
 //    String[][] data;
 //
-static final String[][] data = {{ "1","Casini", "Chemical", "NASA", "Jupiter" }, {"2", "Casini", "Chemical", "NASA", "Jupiter" }, { "3","Casini", "Chemical", "NASA", "Jupiter" }};
+//static final String[][] data = {{ "1","Casini", "Chemical", "NASA", "Jupiter" }, {"2", "Casini", "Chemical", "NASA", "Jupiter" }, { "3","Casini", "Chemical", "NASA", "Jupiter" }};
     Intent intent;
+    static String data[][] = new String[500][500];
     int i=0;
     ArrayList<String> d1,d2,d3,d4,d5;
     FirebaseFirestore db;
@@ -53,21 +54,22 @@ static final String[][] data = {{ "1","Casini", "Chemical", "NASA", "Jupiter" },
 
                          int i=0;
 
-                         int k=1;
+                         int lol=1;
                             for(DocumentSnapshot d : list){
                                 int j=0;
-                                int amt = d.getLong("amount").intValue();
+                                String amt = d.getString("amount");
                                 String service = d.getString("service_consumed");
                                 String from = d.getString("from_user");
                                 String to = d.getString("to_user");
                                 Logl  li  = new Logl(service,from,to,amt);
-                                d1.add(Integer.toString(k));
+                                data[i][j++] = Integer.toString(i+1);
+                                //Log.d("print",d1);
                                 data[i][j++] = from;
                                 data[i][j++] = to;
                                 data[i][j++] = service;
-                                data[i][j++] = Integer.toString(amt);
-                                Log.d("hello ,oto", data[i][j--]);
-                                k++;
+                                data[i][j++] = amt;
+                                //Log.d("hello ,oto", data[i][j--]);
+                                lol++;
                           //      l.add(i,li);
                                 i++;
 
