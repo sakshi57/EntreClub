@@ -3,6 +3,8 @@ package com.example.entreclub.Home;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,15 @@ public class ViewMom extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_mom);
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             //   Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
+                finish();
+            }
+        });
+
         FirebaseApp.initializeApp(this);
         db=FirebaseFirestore.getInstance();
 
@@ -38,7 +49,7 @@ public class ViewMom extends AppCompatActivity {
         t5=(TextView)findViewById(R.id.t_scope);
         t6=(TextView)findViewById(R.id.t_link);
         t7=(TextView)findViewById(R.id.t_remarks);
-        t8=(TextView)findViewById(R.id.t_agenda);
+       // t8=(TextView)findViewById(R.id.t_agenda);
 
 
         getEventDetails();
@@ -51,8 +62,8 @@ public class ViewMom extends AppCompatActivity {
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                String s1=documentSnapshot.getString("Agenda");
-                t8.setText(s1);
+               // String s1=documentSnapshot.getString("Agenda");
+              //  t8.setText(s1);
                 String s2=documentSnapshot.getString("Title");
                 t1.setText(s2);
                 //  Timestamp t=documentSnapshot.getTimestamp("Date");
@@ -80,7 +91,7 @@ public class ViewMom extends AppCompatActivity {
 
 
 
-                Toast.makeText(getApplicationContext(),s1,Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(),s1,Toast.LENGTH_LONG).show();
             }
         });
     }

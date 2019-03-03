@@ -46,11 +46,11 @@ public class Mom extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         db1 = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-
+     //   Bundle extras = intent.getExtras();
+String extras;
         //Date t;
         //pass event_id in Intent from the parent activity
-        event_id= extras.get("event_id").toString();
+        event_id= intent.getStringExtra("event_id");
 
        /* db.collection("Events")
        /* db.collection("Events")
@@ -157,7 +157,7 @@ public class Mom extends AppCompatActivity {
                         for(String s:str1){
 
                             arr[i] = s;
-                            Log.d("nikhil",arr[i]);
+                          //  Log.d("nikhil",arr[i]);
                             i++;
                         }
                     }

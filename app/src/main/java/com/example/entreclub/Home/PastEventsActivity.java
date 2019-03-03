@@ -28,7 +28,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 //
 //public class HomeActivity extends AppCompatActivity {
@@ -136,8 +138,8 @@ public class PastEventsActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 0;
     private static final String TAG = "HomeActivity";
     private Button b;
-    private String Agenda, amendments, date, decision, future_scope, title, link, remarks, amount, id, d;
-
+    private String Agenda, amendments,str, decision, future_scope, title, link, remarks, amount, id, d;
+    Date date;
     RecyclerView recyclerView;
     SecAdapterClass adapterClass;
     List<FeedSecretary> li;
@@ -203,12 +205,19 @@ public class PastEventsActivity extends AppCompatActivity {
 
                                 Agenda = d.getString("Agenda");
                                 title = d.getString("Title");
+
                                 timestamp = d.getTimestamp("Date");
-                                date = timestamp.toString();
-//                            d = date.toString();
+                                date = timestamp.toDate();
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+
+                                str = simpleDateFormat.format(date);
+//                                timestamp = d.getTimestamp("Date");
+//                                date = timestamp.toString();
+////                            d = date.toString();
                                 id = d.getString("id");
 
-                                FeedSecretary feedSecretary = new FeedSecretary(title, date, Agenda, id);
+                                FeedSecretary feedSecretary = new FeedSecretary(title, str, Agenda, id);
                                 li.add(feedSecretary);
 
 

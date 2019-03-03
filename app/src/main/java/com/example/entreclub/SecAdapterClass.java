@@ -54,7 +54,7 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
 
                 Intent i = new Intent( mCtx, log.class);
                 i.putExtra("ID",e.getId());
-
+                Log.d("hello ved",e.getId());
                 mCtx.startActivity(i);
 
             }
@@ -65,6 +65,7 @@ public class SecAdapterClass extends RecyclerView.Adapter<SecAdapterClass.EventV
             public void onClick(View v) {
                 Intent intent = new Intent(mCtx, Mom.class);
                 intent.putExtra("event_id",e.getId());
+                //Log.d("hello ved",e.getId());
                 mCtx.startActivity(intent);
             }
         });
